@@ -1,0 +1,41 @@
+p {
+    color: red;
+}
+
+h1 {
+    color: blue
+}
+
+a {
+    font-size: 20px;
+}
+
+body {
+    background-color: lightblue;
+}
+
+label {
+    color: rgb(73, 12, 12);
+}
+
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+dt {
+    color: orange;
+}
+
+dd {
+    color: white;
+}

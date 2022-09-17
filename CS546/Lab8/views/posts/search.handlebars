@@ -1,0 +1,14 @@
+<title>Shows Found</title>
+<link rel="stylesheet" href="/public/main_styles.css">
+<h1>Posts</h1>
+<h2>{{showSearchTerm}}</h2>
+<section>
+<ul>
+  {{#each searchShowResult}}
+    <li>
+      <a href="show/{{this.show.id}}">{{this.show.name}}</a>
+    </li>
+  {{/each}}
+</ul>
+</section>
+<a href="/">Make Another Search</a>

@@ -1,0 +1,40 @@
+.is-prime{
+    color: #00E676;
+}
+
+.not-prime{
+    color: #FF3D00;
+}
+
+h1{
+    color: blue;
+}
+
+#attempts{
+    font-weight: bold;
+}
+
+footer{
+    color: green;
+}
+
+button{
+    font-size: 20px;
+}
+
+input{
+    width: 15%;
+}
+
+#text_input{
+    color: orange;
+}
+
+.error{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+body {
+    background-color: rgb(54, 172, 211);
+}

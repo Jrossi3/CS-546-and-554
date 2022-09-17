@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Show Finder</title>
+    <link rel="stylesheet" href="/public/main_styles.css">
+</head>
+    <body>
+        <h1>Show Finder</h1>
+        <main>
+            <article>
+                <p>
+                    My website allows the user to put a word in the search 
+                    engine and this will then trigger a search for shows based 
+                    upon that word. After this, the shows will be gathered from a 
+                    separate page. Then the shows will be returned to the user. 
+                </p>
+                <form method="POST" action="/searchshows">
+                    <input type="text" name="showSearchTerm" id ="searchTermId" placeholder="Name of a show"/>
+                    <label for = "searchTermId">This is the Search Form</label>
+                    <button type="submit">Submit Form</button>
+                </form>
+            </article>
+        </main>
+    </body>
+</html>

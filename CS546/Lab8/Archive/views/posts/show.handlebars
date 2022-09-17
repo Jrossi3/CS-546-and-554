@@ -1,0 +1,27 @@
+<title>{{showResults.name}}</title>
+<link rel="stylesheet" href="/public/main_styles.css">
+<article class="post">
+<h1>{{showResults.name}}</h1>
+<img src={{showResults.image.medium}} alt ="Temporary"></img>
+<dl>
+    <dt>Language</dt> 
+    <dd>{{showResults.language}}</dd> 
+    <dt>Genres</dt>
+    <dd>
+      <ul>
+        {{#each showResults.genres}}
+          <li>
+            {{this}}
+          </li>
+        {{/each}}
+      </ul>
+    </dd> 
+    <dt>Average Rating</dt>
+    <dd>{{showResults.rating.average}}</dd>
+    <dt>Network</dt>
+    <dd>{{showResults.network.name}}</dd> 
+    <dt>Summary</dt>
+    <dd>{{showResults.summary}}</dd>
+</dl>
+</article>
+<a href="/">Make Another Search</a>
