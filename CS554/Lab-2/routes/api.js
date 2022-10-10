@@ -14,7 +14,6 @@ client.connect().then(() => {})
 
 router.get('/characters/history', async (req, res) => {
     try {
-        await client.LRANGE("jason", 0, 19)
         res.json(await client.LRANGE("jason", 0, 19))
     } catch (error) {
         throw error
@@ -23,79 +22,79 @@ router.get('/characters/history', async (req, res) => {
 
 router.get('/characters/:id', async (req, res) => {
     let id = req.params.id
-    let x = await api.getCharactersId(id)
     try {
         let cacheForIdExists = await client.get(id)
-        if(x.code != 200){
-            throw error
-        }
-        x = x.data.results[0]
         if (cacheForIdExists) {
             console.log('Data was in cache')
-            await client.LPUSH("jason", JSON.stringify(x))
+            await client.LPUSH("jason", cacheForIdExists)
             res.send(JSON.parse(cacheForIdExists))
         } else {
+            let x = await api.getCharactersId(id)
+            if(x.code != 200){
+                throw error
+            }
+            x = x.data.results[0]
             console.log('Data was not in cache')
             await client.set(
                 id,
                 JSON.stringify(x)
             )
-            res.send("Not in the cache")
+            res.send(x)
         }
     } catch (error) {
-        res.status(404).json({error: x})
+        res.status(404).json({error: await api.getCharactersId(id)})
     }
 });
 
 router.get('/stories/:id', async (req, res) => {
     let id = req.params.id
-    let x = await api.getStoriesId(id)
     try {
         let cacheForIdExists = await client.get(id)
-        if(x.code != 200){
-            throw error
-        }
-        x = x.data.results[0]
         if (cacheForIdExists) {
             console.log('Data was in cache')
-            await client.LPUSH("stories", JSON.stringify(x))
+            await client.LPUSH("stories", cacheForIdExists)
             res.send(JSON.parse(cacheForIdExists))
         } else {
+            let x = await api.getStoriesId(id)
+            if(x.code != 200){
+                throw error
+            }
+            x = x.data.results[0]
             console.log('Data was not in cache')
             await client.set(
                 id,
                 JSON.stringify(x)
             )
-            res.send("Not in the cache")
+            res.send(x)
         }
     } catch (error) {
-        res.status(404).json({error: x})
+        res.status(404).json({error: await api.getStoriesId(id)})
     }
 });
 
 router.get('/comics/:id', async (req, res) => {
     let id = req.params.id
-    let x = await api.getComicsId(id)
     try {
         let cacheForIdExists = await client.get(id)
-        if(x.code != 200){
-            throw error
-        }
-        x = x.data.results[0]
         if (cacheForIdExists) {
             console.log('Data was in cache')
-            await client.LPUSH("comics", JSON.stringify(x))
+            await client.LPUSH("comics", cacheForIdExists)
             res.send(JSON.parse(cacheForIdExists))
         } else {
+            let x = await api.getComicsId(id)
+            if(x.code != 200){
+                throw error
+            }
+            x = x.data.results[0]
             console.log('Data was not in cache')
             await client.set(
                 id,
                 JSON.stringify(x)
             )
-            res.send("Not in the cache")
+            res.send(x)
         }
     } catch (error) {
-        res.status(404).json({error: x})
+        res.status(404).json({error: await api.getComicsId(id)})
     }
 });
 
