@@ -14,7 +14,12 @@ client.connect().then(() => {})
 
 router.get('/characters/history', async (req, res) => {
     try {
-        res.json(await client.LRANGE("jason", 0, 19))
+        let x = await client.LRANGE("jason", 0, 19)
+        let a = []
+        for (let i = 0; i < x.length; i++){
+            a.push((JSON.parse(x[i])))
+        }
+        res.send(a)
     } catch (error) {
         throw error
     }
